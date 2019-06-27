@@ -12,7 +12,9 @@
     "svelte-loader": "2.13.3",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-dev-server": "^3.3.1",
+    "@ant-design/icons": "~2.0.0",
+    "@ant-design/icons-react": "~2.0.1"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
