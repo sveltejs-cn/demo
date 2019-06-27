@@ -4,6 +4,7 @@
 
 	export let type;
 	export let theme;
+	export let className;
 	export let width = '1em';
 	export let height = '1em';
 	export let twoToneColor;
