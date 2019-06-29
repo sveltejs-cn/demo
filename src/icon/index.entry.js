@@ -1,15 +1,48 @@
-import App from './App.svelte';
+import mainfest from '@ant-design/icons/lib/manifest';
+import Icon from './App.svelte';
+import './index.css'
 
-const app = new App({
-	target: document.body,
-	props: {
-        type: 'html5',
-        theme: 'twoTone',
-        twoToneColor: '#eb2f96',
-        width: '100px',
-        height: '100px'
+const baseArr = [
+    {
+        name: 'fill',
+        props: {
+            theme: 'fill',
+            width: '20px',
+            height: '20px'
+        }
+    },
+    {
+        name: 'outline',
+        props: {
+            theme: 'outline',
+            width: '20px',
+            height: '20px'
+        }
+    },
+    {
+        name: 'twotone',
+        props: {
+            theme: 'twotone',
+			width: '20px',
+			height: '20px',
+			twoToneColor: '#eb2f96',
+        }
     }
-});
-
-
-export default app;
+]
+baseArr.forEach((val) => {
+    const arr = mainfest[val.name]
+    const wrapperElem = document.createElement('div')
+    wrapperElem.className = 'common'
+    for (let i = 0;i < arr.length; i++){
+        let elem = document.createElement('span')
+        new Icon({
+            target: elem,
+            props: {
+                type: arr[i],
+                ...val.props
+            }
+        });
+        wrapperElem.appendChild(elem)
+    }
+    document.body.appendChild(wrapperElem)
+})
