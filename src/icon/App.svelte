@@ -9,17 +9,22 @@
 	export let height = '1em';
 	export let twoToneColor;
 
-    function toUpper(str){
+   function toUpper(str){
+        if (str === 'twotone'){
+            return 'TwoTone'
+        }
         if (str.indexOf('-') > -1){
             const index = str.indexOf('-')
             str = str.replace(/-/,'')
             str =  str.substring(0,index) + str.charAt(index).toUpperCase() + str.substring(index+1,str.length)
+            str = toUpper(str)
+            return str
         }
         return str.charAt(0).toUpperCase() + str.slice(1)
     }
     const name = `${toUpper(type)}${toUpper(theme)}`
     let currentIcon = allIcons[name]
-    if (theme === 'twoTone'){
+    if (theme === 'twotone'){
         currentIcon.icon = currentIcon.icon(twoToneColor,generateColor(twoToneColor)[0])
     }
 </script>

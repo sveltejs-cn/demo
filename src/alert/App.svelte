@@ -1,6 +1,6 @@
 <script>
     // import { sineOut } from 'svelte/easing';
-    
+    import Icon from '../icon/App.svelte';
 
 	export let title;
 	export let message;
@@ -26,15 +26,15 @@
         success: 'check-circle',
         info: 'info-circle',
         warning: 'exclamation-circle',
-        info: 'close-circle',
+        error: 'close-circle',
     }
     let iconType = typeToObject[type]
-    import Icon from '../icon/App.svelte';
+    
 
-    const iconTheme = 'fill'
-    const iconWidth = '14px'
-    const iconHeight = '14px'
-    const iconClass = "alert-icon"
+    let iconTheme = 'fill'
+    let iconWidth = '14px'
+    let iconHeight = '14px'
+    let iconClass = "alert-icon"
 </script>
 
 {#if visible}
