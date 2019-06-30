@@ -34,17 +34,27 @@ module.exports = {
 					}
 				}
 			},
-			{
-				test: /\.css$/,
+			{ 
+				test: /\.css$/, 
 				use: [
-					/**
-					 * MiniCssExtractPlugin doesn't support HMR.
-					 * For developing, use 'style-loader' instead.
-					 * */
-					prod ? MiniCssExtractPlugin.loader : 'style-loader',
-					'css-loader'
+					require.resolve('style-loader'),
+					require.resolve('css-loader'),
 				]
-			}
+			},
+			{ 
+				test: /\.less$/, 
+				use: [
+					require.resolve('style-loader'),
+					require.resolve('css-loader'),
+					{
+						loader: require.resolve('less-loader'),
+						options: {
+							javascriptEnabled: true
+						},
+					}
+					
+				]
+			},
 		]
 	},
 	mode,
