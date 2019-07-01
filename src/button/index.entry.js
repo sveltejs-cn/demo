@@ -1,21 +1,5 @@
-import Button from './App.svelte';
-import './index.css'
+import App from './App.svelte';
 
-const typeArr = ['primary','dashed','danger','link']
-
-const baseWrapper = document.createElement('div')
-baseWrapper.id = 'base'
-typeArr.forEach(val => {
-    const elem = document.createElement('span')
-    elem.className = 'common'
-    new Button({
-        target: elem,
-        props: {
-            text: val,
-            type: val
-        }
-    });
-    baseWrapper.appendChild(elem)
-})
-document.body.appendChild(baseWrapper)
-
+new App({
+	target: document.body,
+});

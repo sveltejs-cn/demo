@@ -1,51 +1,56 @@
 <script>
-    // import { sineOut } from 'svelte/easing';
-    import Icon from '../icon/App.svelte';
-    import './index.less'
-	export let title;
-	export let message;
-    export let type;
-    export let closable;
-    export let visible = true;
-    export let showIcon = false;
-    
-    function handleClick() {
-        visible = false
-    }
-
-    function alertOut(node, params) {
-		return {
-			delay: 0,
-			duration: 200,
-			// easing: sineOut,
-			css: (t) => `transform:scaleY(${t})`
-		};
-    }
-    
-    let typeToObject = {
-        success: 'check-circle',
-        info: 'info-circle',
-        warning: 'exclamation-circle',
-        error: 'close-circle',
-    }
-    let iconType = typeToObject[type]
-
-    let iconTheme = 'fill'
-    let className = `ant-alert ant-alert-${type} ${showIcon ? '':'ant-alert-no-icon'} ${message ? 'ant-alert-with-description': ''}`
-    let iconClass = `anticon anticon-${iconType} ant-alert-icon`
+    import Alert from '../../components/alert/App.svelte';
+    const arr = [
+        {
+            title: 'this is success alert(can close)',
+            message: 'Success Text',
+            type: 'success',
+            closable: true,
+            showIcon: true
+        },
+        {
+            title: 'this is error alert(can close)',
+            message: 'error Text',
+            type: 'error',
+            closable: true,
+            showIcon: true
+        },
+        {
+            title: 'this is warning alert(can close)',
+            message: 'warning Text',
+            type: 'warning',
+            closable: true,
+            showIcon: true
+        },
+        {
+            title: 'this is info alert(can close)',
+            message: 'info Text',
+            type: 'info',
+            closable: true,
+            showIcon: true
+        },
+        {
+            title: 'this is success alert(cannot close no icon)',
+            message: 'Success Text',
+            type: 'success',
+            closable: false,
+            showIcon: false
+        }
+    ]
 </script>
 
-{#if visible}
-    <div out:alertOut class={className}>
-        {#if showIcon}
-            <Icon className={iconClass} bind:type={iconType} bind:theme={iconTheme} ></Icon>
-        {/if}
-        <span class="ant-alert-message">{title}</span>
-        <span class="ant-alert-description">{message}</span>
-        {#if closable}
-            <a class="ant-alert-close-icon" on:click={handleClick} href="javascript:;">
-                <Icon type="close" ></Icon>
-            </a>
-        {/if}
-    </div>
-{/if}
+
+<style>
+.common{
+    margin-bottom: 20px;
+}
+</style>
+
+
+<div>
+    {#each arr as item}
+        <div class="common">
+            <Alert title={item.title} message={item.message} type={item.type} closable={item.closable} showIcon={item.showIcon}></Alert>
+        </div>
+    {/each}
+</div>
