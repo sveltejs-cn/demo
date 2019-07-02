@@ -4,3 +4,4 @@ package-lock.json
 .history
 .dist
 .vscode
+.idea

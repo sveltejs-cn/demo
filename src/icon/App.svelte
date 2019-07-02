@@ -1,15 +1,17 @@
 <script>
+    import '../../style/index.less';
+    import './index.less'
     import * as allIcons from '@ant-design/icons/lib/dist';
     import { generate as generateColor } from '@ant-design/colors';
 
 	export let type;
-	export let theme;
-	export let className;
+	export let theme = 'outline';
+	export let className = `anticon anticon-${type}`;
 	export let width = '1em';
 	export let height = '1em';
-	export let twoToneColor;
-
-   function toUpper(str){
+    export let twoToneColor;
+    
+    function toUpper(str){
         if (str === 'twotone'){
             return 'TwoTone'
         }
@@ -33,8 +35,8 @@
 
 </style>
 
-<i class="icon">
-    <svg viewBox={currentIcon.icon.attrs.viewBox} class="" data-icon={type} width={width} height={height} fill="currentColor" aria-hidden="true" focusable="false">
+<i class={className}>
+    <svg viewBox={currentIcon.icon.attrs.viewBox} class="" data-icon={type} width='1em' height='1em' fill="currentColor" aria-hidden="true" focusable="false">
         {#each currentIcon.icon.children as chlid}
             <path fill={chlid.attrs.fill} d={chlid.attrs.d}></path>
         {/each}
