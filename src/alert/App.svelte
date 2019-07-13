@@ -1,5 +1,5 @@
 <script>
-    import Alert from '../../components/alert/App.svelte';
+    import Alert from '../../components/alert/index.js';
     const arr = [
         {
             title: 'this is success alert(can close)',

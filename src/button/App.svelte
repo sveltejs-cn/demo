@@ -1,5 +1,5 @@
 <script>
-    import Button from '../../components/button/App.svelte';
+    import Button from '../../components/button/index.js';
     const typeArr = ['primary','dashed','danger','link']
 </script>
 

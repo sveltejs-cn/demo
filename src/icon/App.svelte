@@ -1,6 +1,6 @@
 <script>
     import mainfest from '@ant-design/icons/lib/manifest';
-    import Icon from '../../components/icon/App.svelte';
+    import Icon from '../../components/icon/index.js';
     const baseArr = [
         {
             name: 'fill',
